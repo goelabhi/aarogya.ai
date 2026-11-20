@@ -12,7 +12,10 @@ st.set_page_config(
 
 st.title("💊 aarogya.ai")
 st.caption("Medicine Access Assistant")
-
+st.caption(
+    "For medicine access and affordability information only. "
+    "Always confirm medicine choice and substitution with a doctor or pharmacist."
+)
 st.write(
     "Find nearby availability, affordable alternatives, "
     "and government support for your medicine."
