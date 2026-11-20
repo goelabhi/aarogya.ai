@@ -19,6 +19,14 @@ MEDICINES = {
     }
 }
 
+SCHEMES = [
+    {
+        "name": "Pradhan Mantri Bhartiya Janaushadhi Pariyojana",
+        "short_name": "PMBJP",
+        "description": "Provides quality generic medicines at affordable prices through Jan Aushadhi Kendras.",
+        "relevance": "Useful when a lower-cost generic medicine is available through a Jan Aushadhi Kendra."
+    }
+]
 
 def find_medicine(medicine_name):
     medicine_name = medicine_name.lower().strip()
@@ -28,3 +36,6 @@ def find_medicine(medicine_name):
             return data
 
     return None
+
+def find_schemes():
+    return SCHEMES
