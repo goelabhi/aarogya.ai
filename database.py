@@ -24,7 +24,34 @@ def create_database():
     cursor.execute("DELETE FROM pharmacies")
     
     pharmacies = [
+                (
+                        (
+            "Jan Aushadhi Kendra",
+            "Krishna Nagar",
+            "Krishna Nagar, Mathura",
+            "amlodipine",
+            9,
+            1,
+            "2026-11-20"
+        ),
         (
+            "Apollo Pharmacy",
+            "Dampier Nagar",
+            "Dampier Nagar, Mathura",
+            "amlodipine",
+            28,
+            1,
+            "2026-11-20"
+        ),
+        (
+            "MedPlus",
+            "Maholi Road",
+            "Maholi Road, Mathura",
+            "amlodipine",
+            22,
+            1,
+            "2026-11-20"
+        )
             "Jan Aushadhi Kendra",
             "Krishna Nagar",
             "Krishna Nagar, Mathura",
