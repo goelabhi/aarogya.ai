@@ -34,6 +34,8 @@ prescription = st.file_uploader(
     type=["png", "jpg", "jpeg"]
 )
 
+extracted_text = ""
+
 if prescription:
     st.image(
         prescription,
@@ -41,12 +43,12 @@ if prescription:
         use_container_width=True
     )
     
-    if prescription:
-        import pytesseract
-        from PIL import Image
+    
+    import pytesseract
+    from PIL import Image
 
-        image = Image.open(prescription)
-        extracted_text = pytesseract.image_to_string(image)
+    image = Image.open(prescription)
+    extracted_text = pytesseract.image_to_string(image)
 
         st.subheader("Prescription text")
 
@@ -55,8 +57,11 @@ if prescription:
         else:
             st.warning("No readable text was found in the prescription.")
 
+default_medicine = extracted_text.strip() if prescription else ""
+
 medicine = st.text_input(
-    "What medicine are you looking for?",
+    "Medicine name",
+    value=default_medicine,
     placeholder="e.g. Paracetamol 500 mg"
 )
 
