@@ -29,6 +29,10 @@ st.write(
 
 st.divider()
 
+prescription = st.file_uploader(
+    "Or upload a prescription",
+    type=["png", "jpg", "jpeg"]
+)
 
 medicine = st.text_input(
     "What medicine are you looking for?",
