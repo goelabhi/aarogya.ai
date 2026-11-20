@@ -43,5 +43,6 @@ def get_pharmacies(
     return {
         "medicine": medicine,
         "location": location,
+        "count": len(results),
         "results": results
     }
