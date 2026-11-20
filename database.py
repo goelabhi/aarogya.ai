@@ -96,6 +96,33 @@ def create_database():
             1,
             "2026-11-20"
         )
+        (
+            "Jan Aushadhi Kendra",
+            "Krishna Nagar",
+            "Krishna Nagar, Mathura",
+            "azithromycin",
+            18,
+            1,
+            "2026-11-20"
+        ),
+        (
+            "Apollo Pharmacy",
+            "Dampier Nagar",
+            "Dampier Nagar, Mathura",
+            "azithromycin",
+            42,
+            1,
+            "2026-11-20"
+        ),
+        (
+            "MedPlus",
+            "Maholi Road",
+            "Maholi Road, Mathura",
+            "azithromycin",
+            35,
+            1,
+            "2026-11-20"
+        ),
     ]
 
     cursor.executemany("""
