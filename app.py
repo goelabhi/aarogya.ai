@@ -7,7 +7,7 @@ from backend import find_medicine, find_schemes
 
 
 st.set_page_config(
-    page_title="aarogya.ai",
+    page_title="Aarogya Bharat.ai",
     page_icon="💊",
     layout="centered"
 )
