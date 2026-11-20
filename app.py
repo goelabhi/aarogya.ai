@@ -14,7 +14,7 @@ st.set_page_config(
 
 
 
-st.title("💊 aarogya.ai")
+st.title("💊 Aarogya Bharat.ai")
 st.caption("Medicine Access Assistant")
 
 st.caption(
