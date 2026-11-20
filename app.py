@@ -163,7 +163,14 @@ Do not invent:
 
 If information is unavailable, clearly say so.
 
-Respond in the citizen's preferred language: {language}.
+LANGUAGE RULE:
+- If the preferred language is English, respond ONLY in natural English.
+- If the preferred language is Hindi, respond ONLY in natural Hindi written in Devanagari script.
+- Do not use Hinglish.
+- Do not mix English and Hindi unless a medicine name, pharmacy name,
+  scheme name, or technical medical term must remain in its original form.
+
+Respond according to the language rule above.
 """
 
             with st.spinner("Finding information..."):
