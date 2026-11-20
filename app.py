@@ -55,16 +55,43 @@ if st.button("Find medicine", type="primary"):
             "http://localhost:8000"
         )
 
-        pharmacy_response = requests.get(
-            f"{API_URL}/pharmacies",
-            params={
-                "medicine": medicine.split()[0],
-                "location": location
-            }
-        )
+         try:
+            pharmacy_response = requests.get(
+                f"{API_URL}/pharmacies",
+                params={
+                    "medicine": medicine.split()[0],
+                    "location": location
+                },
+                timeout=10
+            )
 
-        pharmacy_data = pharmacy_response.json()
-        
+            pharmacy_response.raise_for_status()
+            pharmacy_data = pharmacy_response.json()
+
+        except requests.RequestException:
+            pharmacy_data = {
+                "medicine": medicine,
+                "location": location,
+                "count": 0,
+                "results": []
+            }
+
+            st.warning(
+                "Pharmacy availability is currently unavailable. "
+                "You can still view medicine information."
+            )
+        if pharmacy_data["count"] > 0:
+            st.subheader("Nearby pharmacies")
+
+            for pharmacy in pharmacy_data["results"]:
+                st.write(f"**{pharmacy['name']}**")
+                st.write(f" {pharmacy['address']}")
+                st.write(f" Listed price: ₹{pharmacy['price']}")
+                st.write("---")
+        else:
+            st.info(
+                "No matching pharmacy was found in the current prototype database."
+            )
         if not medicine_data:
             st.warning(
                 "We could not find this medicine in our current database."
