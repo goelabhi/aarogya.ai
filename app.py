@@ -3,13 +3,15 @@ import requests
 import os
 from ai import get_ai_response
 from backend import find_medicine, find_schemes
+from database import create_database
+import sqlite3
 
 st.set_page_config(
     page_title="aarogya.ai",
     page_icon="💊",
     layout="centered"
 )
-
+create_database()
 st.title("💊 aarogya.ai")
 st.caption("Medicine Access Assistant")
 st.caption(
