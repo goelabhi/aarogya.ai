@@ -7,20 +7,31 @@ st.set_page_config(
 )
 
 st.title("💊 aarogya.ai")
-st.subheader("Medicine Access Assistant")
+st.caption("Medicine Access Assistant")
 
 st.write(
-    "Find medicine availability, prices, affordable alternatives, "
-    "and relevant government support."
+    "Find nearby availability, affordable alternatives, "
+    "and government support for your medicine."
 )
 
+st.divider()
+
 medicine = st.text_input(
-    "Enter the medicine name",
+    "What medicine are you looking for?",
     placeholder="e.g. Paracetamol 500 mg"
 )
 
-if st.button("Find Medicine"):
-    if medicine.strip():
-        st.info(f"Searching for: {medicine}")
-    else:
+location = st.text_input(
+    "Your location",
+    placeholder="e.g. Meerut"
+)
+
+if st.button("Find medicine", type="primary"):
+    if not medicine:
         st.warning("Please enter a medicine name.")
+    elif not location:
+        st.warning("Please enter your location.")
+    else:
+        st.success(
+            f"Looking for **{medicine}** near **{location}**..."
+        )
