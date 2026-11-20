@@ -50,7 +50,7 @@ if prescription:
     image = Image.open(prescription)
     extracted_text = pytesseract.image_to_string(image)
 
-    st.subheader("Prescription text")
+        st.subheader("Prescription text")
 
         if extracted_text.strip():
             st.write(extracted_text)
