@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import os
 from ai import get_ai_response
-from backend import find_medicine
+from backend import find_medicine, find_schemes
 
 st.set_page_config(
     page_title="aarogya.ai",
@@ -45,6 +45,7 @@ if st.button("Find medicine", type="primary"):
         st.warning("Please enter your location.")
         else:
         medicine_data = find_medicine(medicine)
+        scheme_data = find_schemes()
         
        API_URL = os.getenv(
             "AAROGYA_API_URL",
@@ -81,6 +82,9 @@ Affordability information: {medicine_data["affordable_option"]}
 
 Pharmacy information retrieved from the aarogya.ai pharmacy API:
 {pharmacy_data["results"]}
+
+Government affordability programmes:
+{scheme_data}
 
 Use the verified information above to give the citizen a simple,
 practical answer.
