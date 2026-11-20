@@ -26,6 +26,14 @@ location = st.text_input(
     placeholder="e.g. Meerut"
 )
 
+language = st.selectbox(
+    "Preferred language",
+    [
+        "English",
+        "Hindi"
+    ]
+)
+
 if st.button("Find medicine", type="primary"):
     if not medicine:
         st.warning("Please enter a medicine name.")
