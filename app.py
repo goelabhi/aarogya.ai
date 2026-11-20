@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import os
 from ai import get_ai_response
 from backend import find_medicine
 
@@ -45,7 +46,10 @@ if st.button("Find medicine", type="primary"):
         else:
         medicine_data = find_medicine(medicine)
         
-        API_URL = "http://localhost:8000"
+       API_URL = os.getenv(
+            "AAROGYA_API_URL",
+            "http://localhost:8000"
+        )
 
         pharmacy_response = requests.get(
             f"{API_URL}/pharmacies",
@@ -75,7 +79,19 @@ Common strengths: {", ".join(medicine_data["strengths"])}
 Category: {medicine_data["category"]}
 Affordability information: {medicine_data["affordable_option"]}
 
-Explain this information simply for the citizen.
+Pharmacy information retrieved from the aarogya.ai pharmacy API:
+{pharmacy_data["results"]}
+
+Use the verified information above to give the citizen a simple,
+practical answer.
+
+Tell the citizen:
+1. Whether the medicine was found.
+2. Which nearby pharmacies have it, if any.
+3. The listed price where available.
+4. The generic/affordable information available.
+5. That pharmacy information is from the prototype database and
+   may not represent live availability.
 
 Do not invent:
 - pharmacy availability
@@ -84,10 +100,6 @@ Do not invent:
 - government schemes
 
 If information is unavailable, clearly say so.
+
+Respond in the citizen's preferred language: {language}.
 """
-
-            with st.spinner("Finding information..."):
-                response = get_ai_response(prompt)
-
-            st.subheader("aarogya.ai")
-            st.write(response)
