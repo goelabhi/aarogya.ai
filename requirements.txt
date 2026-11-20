@@ -1,4 +1,5 @@
 streamlit
+requests
 langchain-openrouter
 fastapi
 uvicorn
