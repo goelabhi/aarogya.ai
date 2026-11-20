@@ -748,16 +748,13 @@ Respond according to the language rule above.
 st.markdown(
     """
     <div class="tradition-card">
-
         <div class="tradition-icons">
             🧘 🌿 🪷 🌿 🪔
         </div>
-
         <div class="tradition-text">
             Inspired by India's tradition of accessible,
             holistic wellbeing — built for today's citizen.
         </div>
-
     </div>
     """,
     unsafe_allow_html=True
