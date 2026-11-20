@@ -50,6 +50,8 @@ if prescription:
     image = Image.open(prescription)
     extracted_text = pytesseract.image_to_string(image)
 
+    if not extracted_text.strip():
+        st.warning("No readable text was found in the prescription.")
 # Extract medicine name from OCR text
 ocr_medicine = ""
 
@@ -82,16 +84,6 @@ medicine = st.text_input(
     placeholder="e.g. Paracetamol 500 mg"
 )
 
-if not extracted_text.strip():
-    st.warning("No readable text was found in the prescription.")
-
-default_medicine = extracted_text.strip() if prescription else ""
-
-medicine = st.text_input(
-    "Medicine name",
-    value=default_medicine,
-    placeholder="e.g. Paracetamol 500 mg"
-)
 
 location = st.text_input(
     "Your location",
@@ -139,7 +131,7 @@ if st.button("Find medicine", type="primary"):
             pharmacy_response.raise_for_status()
             pharmacy_data = pharmacy_response.json()
 
-        except requests.RequestException:
+        except requests.RequestException as e:
             st.error(f"Pharmacy API error: {e}")
             pharmacy_data = {
                 "medicine": medicine,
