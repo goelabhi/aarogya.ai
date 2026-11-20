@@ -78,7 +78,9 @@ Verified medicine information:
 Generic name: {medicine_data["generic_name"]}
 Common strengths: {", ".join(medicine_data["strengths"])}
 Category: {medicine_data["category"]}
+Generic/affordable alternative: {medicine_data["generic_alternative"]}
 Affordability information: {medicine_data["affordable_option"]}
+
 
 Pharmacy information retrieved from the aarogya.ai pharmacy API:
 {pharmacy_data["results"]}
