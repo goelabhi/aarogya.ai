@@ -57,31 +57,40 @@ if st.button("Find medicine", type="primary"):
             "http://localhost:8000"
         )
 
-         try:
-            pharmacy_response = requests.get(
-                f"{API_URL}/pharmacies",
-                params={
-                    "medicine": medicine.split()[0],
-                    "location": location
-                },
-                timeout=10
-            )
+conn = sqlite3.connect("aarogya.db")
+conn.row_factory = sqlite3.Row
 
-            pharmacy_response.raise_for_status()
-            pharmacy_data = pharmacy_response.json()
+cursor = conn.cursor()
 
-        except requests.RequestException:
-            pharmacy_data = {
-                "medicine": medicine,
-                "location": location,
-                "count": 0,
-                "results": []
-            }
+cursor.execute("""
+    SELECT
+        name,
+        area,
+        address,
+        medicine,
+        price,
+        available,
+        last_updated
+    FROM pharmacies
+    WHERE LOWER(medicine) = LOWER(?)
+    AND LOWER(address) LIKE LOWER(?)
+    AND available = 1
+""", (
+    medicine.split()[0],
+    f"%{location}%"
+))
 
-            st.warning(
-                "Pharmacy availability is currently unavailable. "
-                "You can still view medicine information."
-            )
+results = [dict(row) for row in cursor.fetchall()]
+
+conn.close()
+
+pharmacy_data = {
+    "medicine": medicine,
+    "location": location,
+    "count": len(results),
+    "results": results
+}
+
         if pharmacy_data["count"] > 0:
             st.subheader("Nearby pharmacies")
 
