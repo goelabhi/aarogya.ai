@@ -354,14 +354,25 @@ st.markdown(
 st.markdown(
     """
     <div class="hero">
-        <div class="hero-title">🌿 aarogya.ai</div>
-        <div class="hero-subtitle">Medicine access, made simpler.</div>
-        <div class="hero-description">Ayushman Bharat, Swasth Bharat!</div>
-        <div class="hero-description">
+
+        <div class="hero-title" style="text-align: center;">
+            🌿 aarogya.ai
+        </div>
+
+        <div class="hero-subtitle" style="text-align: center;">
+            Medicine access, made simpler.
+        </div>
+
+        <div class="hero-description" style="text-align: center; font-weight: 600;">
+            आयुष्मान भारत, स्वस्थ भारत!
+        </div>
+
+        <div class="hero-description" style="text-align: center;">
             Find nearby medicine availability, compare listed prices,
             discover affordable alternatives and understand government
             support — all in one place.
         </div>
+
     </div>
     """,
     unsafe_allow_html=True
