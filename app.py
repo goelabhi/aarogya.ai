@@ -4,7 +4,6 @@ import os
 
 from ai import get_ai_response
 from backend import find_medicine, find_schemes
-from database import create_database
 
 
 st.set_page_config(
@@ -13,7 +12,6 @@ st.set_page_config(
     layout="centered"
 )
 
-create_database()
 
 
 st.title("💊 aarogya.ai")
