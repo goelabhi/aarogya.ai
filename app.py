@@ -50,12 +50,12 @@ if prescription:
     image = Image.open(prescription)
     extracted_text = pytesseract.image_to_string(image)
 
-        st.subheader("Prescription text")
+    st.subheader("Prescription text")
 
-        if extracted_text.strip():
-            st.write(extracted_text)
-        else:
-            st.warning("No readable text was found in the prescription.")
+    if extracted_text.strip():
+        st.write(extracted_text)
+    else:
+        st.warning("No readable text was found in the prescription.")
 
 default_medicine = extracted_text.strip() if prescription else ""
 
