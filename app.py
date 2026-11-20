@@ -375,12 +375,10 @@ st.markdown(
 st.markdown(
     """
     <div class="wellness-strip">
-
         <div class="wellness-pill">🧘 Simple & accessible</div>
         <div class="wellness-pill">🌿 Affordability focused</div>
         <div class="wellness-pill">💊 Medicine access</div>
         <div class="wellness-pill">🇮🇳 For every citizen</div>
-
     </div>
     """,
     unsafe_allow_html=True
