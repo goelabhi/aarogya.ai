@@ -82,7 +82,7 @@ if st.button("Find medicine", type="primary"):
             pharmacy_data = pharmacy_response.json()
 
         except requests.RequestException:
-
+            st.error(f"Pharmacy API error: {e}")
             pharmacy_data = {
                 "medicine": medicine,
                 "location": location,
