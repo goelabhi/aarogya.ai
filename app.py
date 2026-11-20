@@ -1,4 +1,5 @@
 import streamlit as st
+import requests
 from ai import get_ai_response
 from backend import find_medicine
 
@@ -43,7 +44,17 @@ if st.button("Find medicine", type="primary"):
         st.warning("Please enter your location.")
         else:
         medicine_data = find_medicine(medicine)
+        
+        pharmacy_response = requests.get(
+            "http://localhost:8000/pharmacies",
+            params={
+                "medicine": medicine.split()[0],
+                "location": location
+            }
+        )
 
+        pharmacy_data = pharmacy_response.json()
+        
         if not medicine_data:
             st.warning(
                 "We could not find this medicine in our current database."
