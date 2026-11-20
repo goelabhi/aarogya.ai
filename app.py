@@ -355,7 +355,7 @@ st.markdown(
     """
     <div class="hero">
         <h1 style="text-align:center; margin-bottom:0.2rem;">
-            🌿 aarogya.ai
+            🌿 Aarogya Bharat.ai
         </h1>
         <p style="text-align:center; font-size:1.05rem;">
             Medicine access, made simpler.
