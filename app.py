@@ -45,8 +45,10 @@ if st.button("Find medicine", type="primary"):
         else:
         medicine_data = find_medicine(medicine)
         
+        API_URL = "http://localhost:8000"
+
         pharmacy_response = requests.get(
-            "http://localhost:8000/pharmacies",
+            f"{API_URL}/pharmacies",
             params={
                 "medicine": medicine.split()[0],
                 "location": location
