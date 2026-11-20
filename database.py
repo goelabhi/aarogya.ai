@@ -95,7 +95,7 @@ def create_database():
             32,
             1,
             "2026-11-20"
-        )
+        ),
         (
             "Jan Aushadhi Kendra",
             "Krishna Nagar",
