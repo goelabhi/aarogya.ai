@@ -355,21 +355,13 @@ st.markdown(
 st.markdown(
     """
     <div class="hero">
-
-        <div class="hero-title">
-            🌿 aarogya.ai
-        </div>
-
-        <div class="hero-subtitle">
-            Medicine access, made simpler.
-        </div>
-
+        <div class="hero-title">🌿 aarogya.ai</div>
+        <div class="hero-subtitle">Medicine access, made simpler.</div>
         <div class="hero-description">
             Find nearby medicine availability, compare listed prices,
             discover affordable alternatives and understand government
             support — all in one place.
         </div>
-
     </div>
     """,
     unsafe_allow_html=True
