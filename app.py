@@ -34,6 +34,13 @@ prescription = st.file_uploader(
     type=["png", "jpg", "jpeg"]
 )
 
+if prescription:
+    st.image(
+        prescription,
+        caption="Uploaded prescription",
+        use_container_width=True
+    )
+
 medicine = st.text_input(
     "What medicine are you looking for?",
     placeholder="e.g. Paracetamol 500 mg"
