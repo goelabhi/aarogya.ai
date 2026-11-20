@@ -20,7 +20,9 @@ def create_database():
             last_updated TEXT
         )
     """)
-
+    
+    cursor.execute("DELETE FROM pharmacies")
+    
     pharmacies = [
         (
             "Jan Aushadhi Kendra",
