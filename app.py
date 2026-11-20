@@ -354,19 +354,19 @@ st.markdown(
 
 st.markdown(
     """
-    <div class="hero">
-        <div class="hero-title">🌿 aarogya.ai</div>
-        <div class="hero-subtitle">Medicine access, made simpler.</div>
-        <div class="hero-description">
-            Find nearby medicine availability, compare listed prices,
-            discover affordable alternatives and understand government
-            support — all in one place.
+    <div class="tradition-card">
+        <div class="tradition-icons">
+            🧘 🌿 🪷 🌿 🪔
+        </div>
+
+        <div class="tradition-text">
+            Inspired by India's tradition of accessible,
+            holistic wellbeing — built for today's citizen.
         </div>
     </div>
     """,
     unsafe_allow_html=True
 )
-
 
 # ============================================================
 # WELLNESS STRIP
