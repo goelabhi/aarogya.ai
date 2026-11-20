@@ -50,12 +50,40 @@ if prescription:
     image = Image.open(prescription)
     extracted_text = pytesseract.image_to_string(image)
 
-    st.subheader("Prescription text")
+# Extract medicine name from OCR text
+ocr_medicine = ""
 
-    if extracted_text.strip():
-        st.write(extracted_text)
-    else:
-        st.warning("No readable text was found in the prescription.")
+if extracted_text.strip():
+    extraction_prompt = f"""
+You are extracting medicine names from a prescription.
+
+OCR text:
+{extracted_text}
+
+Task:
+Identify the most likely medicine name written in the prescription.
+
+Rules:
+- Return ONLY the medicine name.
+- Do not return dosage instructions.
+- Do not return quantity.
+- Do not return doctor name.
+- Do not return patient name.
+- Do not explain anything.
+- If no medicine name can be identified, return an empty string.
+"""
+
+    ocr_medicine = get_ai_response(extraction_prompt).strip()
+
+
+medicine = st.text_input(
+    "Medicine name",
+    value=ocr_medicine,
+    placeholder="e.g. Paracetamol 500 mg"
+)
+
+if not extracted_text.strip():
+    st.warning("No readable text was found in the prescription.")
 
 default_medicine = extracted_text.strip() if prescription else ""
 
